@@ -1,0 +1,10 @@
+RewriteEngine on
+
+# Check if the requested file does not exist
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Check if the requested directory does not exist
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite all other requests to index.php within the /workopia directory
+RewriteRule ^(.*)$ /workopia/index.php [NC,L,QSA]
