@@ -9,7 +9,6 @@ $routes = [
 ];
 
 $uri = $_SERVER['REQUEST_URI'];
-$uri = str_replace('/workopia', '', $uri);
 // inspectAndDie($uri);
 
 if (array_key_exists($uri, $routes)) {
