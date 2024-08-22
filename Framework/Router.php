@@ -2,6 +2,8 @@
 
 namespace Framework;
 
+use App\Controllers\ErrorController;
+
 class Router {
     protected $routes = [];
 
@@ -27,58 +29,45 @@ class Router {
      * Add a GET route
      * 
      * @param string $uri
-     * @param string $controller
+     * @param string $action
      * @return void
      */
-    public function get($uri, $controller) {
-        $this->registerRoute('GET', $uri, $controller);
+    public function get($uri, $action) {
+        $this->registerRoute('GET', $uri, $action);
     }
 
     /**
      * Add a POST route
      * 
      * @param string $uri
-     * @param string $controller
+     * @param string $action
      * @return void
      */
-    public function post($uri, $controller) {
-        $this->registerRoute('POST', $uri, $controller);
+    public function post($uri, $action) {
+        $this->registerRoute('POST', $uri, $action);
     }
 
     /**
      * Add a PUT route
      * 
      * @param string $uri
-     * @param string $controller
+     * @param string $action
      * @return void
      */
-    public function put($uri, $controller) {
-        $this->registerRoute('PUT', $uri, $controller);
+    public function put($uri, $action) {
+        $this->registerRoute('PUT', $uri, $action);
     }
 
     /**
      * Add a DELETE route
      * 
      * @param string $uri
-     * @param string $controller
+     * @param string $action
      * @return void
      */
-    public function delete($uri, $controller) {
-        $this->registerRoute('DELETE', $uri, $controller);
+    public function delete($uri, $action) {
+        $this->registerRoute('DELETE', $uri, $action);
     }
-
-    /**
-     * Load error page
-     * 
-     * @param int $httpCode
-     * @return void
-     */
-    public function error($httpCode = 404) {
-        http_response_code($httpCode);
-        loadView("error/{$httpCode}");
-        exit;
-    }
-
 
     /**
      * Route the request
@@ -101,6 +90,6 @@ class Router {
             }
         }
 
-        $this->error();
+        ErrorController::notFound();
     }
 }
