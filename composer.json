@@ -1,0 +1,16 @@
+{
+    "name": "mehdialipak/workopia",
+    "description": "Job listings application",
+    "authors": [
+        {
+            "name": "Mehdi Ali",
+            "email": "mahdipak1251810@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
